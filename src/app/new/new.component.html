@@ -20,19 +20,19 @@
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 w-50 container mt-5">
                 <label class="fs-5 text-light" for="" >Enter your accountnumber</label><br>
-                <input #uname id="uname"class="w-50 p-1 mt-3" id="a1" type="text" [placeholder]="placeData">
+                <input [(ngModel)]="uname"  id="uname"class="w-50 p-1 mt-3" id="a1" type="text" [placeholder]="placeData">
     
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 w-50 container mt-5">
                 <label class="fs-5 text-light" for="" >Enter your password</label><br>
-                <input #psw class="w-50 p-1 mt-3" id="a1" type="password" placeholder="Enter Your Password">
+                <input  [(ngModel)]="psw" class="w-50 p-1 mt-3" id="a1" type="password" placeholder="Enter Your Password">
     
             </div>
         </div>
         <div class="row">
-            <button  class=" col-lg-6 col-md-12 col-sm-12 container btn bg-success mt-5 " (click)="login(uname,psw)" type="submit">Login</button>
+            <button  class=" col-lg-6 col-md-12 col-sm-12 container btn bg-success mt-5 " (click)="login()" type="submit">Login</button>
 <a href="">create account</a>
         </div>
     
