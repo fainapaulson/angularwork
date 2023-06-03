@@ -10,32 +10,43 @@
 
 </head>
 <body>
-    <div class="w-50 container ">
-        <div class="row">
-            <div class="col-6 w-50 container ">
-                <h4 class="text-center fs-3 ">LOGIN PAGE</h4>
-    
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="w-50 container ">
+            <div class="row">
+                <div class="col-6 w-50 container ">
+                    <h4 class="text-center fs-3 text-light ">LOGIN PAGE</h4>
+        
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12 w-50 container mt-5">
-                <label class="fs-5 text-light" for="" >Enter your accountnumber</label><br>
-                <input [(ngModel)]="uname"  id="uname"class="w-50 p-1 mt-3" id="a1" type="text" [placeholder]="placeData">
-    
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 w-50 container mt-5">
+                    <label class="fs-5 text-light" for="" >Enter your accountnumber</label><br>
+                    <input formControlName="acno"  id="uname"class="w-50 p-1 mt-3"  type="text" [placeholder]="placeData">
+        
+                </div>
+                <div *ngIf ="(this.loginForm.get('acno')?.errors)&&(this.loginForm.get('acno')?.touched)">
+                    <p class="text-danger text-center">must contain numbers only</p> 
+                 </div>
+
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12 w-50 container mt-5">
-                <label class="fs-5 text-light" for="" >Enter your password</label><br>
-                <input  [(ngModel)]="psw" class="w-50 p-1 mt-3" id="a1" type="password" placeholder="Enter Your Password">
-    
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 w-50 container mt-5">
+                    <label class="fs-5 text-light" for="" >Enter your password</label><br>
+                    <input  formControlName="psw" class="w-50 p-1 mt-3" id="a9" type="password" placeholder="Enter Your Password">
+        
+                </div>
+                <div *ngIf ="(this.loginForm.get('psw')?.errors)&&(this.loginForm.get('psw')?.touched)">
+                    <p class="text-danger text-center">must contain charecters and numbers only</p> 
+                 </div>
+
             </div>
-        </div>
-        <div class="row">
-            <button  class=" col-lg-6 col-md-12 col-sm-12 container btn bg-success mt-5 " (click)="login()" type="submit">Login</button>
-<a href="">create account</a>
-        </div>
-    
-</div>    
+            <div class="row">
+                <button  class=" col-lg-6 col-md-12 col-sm-12 container btn bg-success mt-5 " (click)="login()" type="submit">Login</button>
+    <a routerLink="register">create account</a>
+            </div>
+        
+    </div>    
+    t
+</form>
 </body>
 </html>

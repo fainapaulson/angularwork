@@ -1,0 +1,7 @@
+
+<div *ngIf="childAcno" class="container  text-center bg-light p-2 border rounded-pill">
+    <h5>Are you sure ! do you want to delete your account {{childAcno}} ? </h5>
+    <button (click)="deleteConf()" class="btn btn-success">yes</button>
+    <button (click)="cancelDelete()" class="btn btn-danger ms-3">No</button>
+
+</div>

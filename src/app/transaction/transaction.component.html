@@ -1,0 +1,38 @@
+<div class="row">
+  <div  class="text center mt-5 text-light"> 
+  <h1 class="mt-2 ">Account Statement</h1>
+  <h2 class="mt-2 fs-4">Account Number : {{acno}}</h2>
+  <h3 class="mt-2 fs-4">Account Holder Name : {{user}}</h3>
+  <p>{{date | date:'medium' }}</p>
+  </div>
+  <div class="text-center">
+    <h3 class="text-light w-50 container">Filter</h3>
+<button (click)=" filterTrans('CREDIT')" class="btn btn-info w-25 me-5 mt-5">Credit</button>
+<button (click)=" filterTrans('DEBIT')" class="btn btn-info w-25 me-5 mt-5">Debit</button>
+<button (click)=" filterTrans('')" class="btn btn-info w-25 me-5 mt-5">All</button>
+
+</div>
+  
+</div>
+<table class="table text-light">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Type</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody class="text-light">
+        <tr *ngFor="let i of transactions | filter:searchString:'type';let n=index;">
+        <td>{{n+1}}</td>
+            <td>{{i.type}}</td>
+        <td>{{i.amount}}</td>
+        <td>{{i.date}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center p-5">
+    <button (click)="exportPdf()" class="btn btn-info w-25 me-5 mt-5">Export As PDF</button>
+
+  </div>
